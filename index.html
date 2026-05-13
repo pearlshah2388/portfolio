@@ -310,8 +310,8 @@ footer{border-top:1px solid var(--border);padding:20px clamp(20px,5vw,72px);disp
       <span style="font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#9A6A10">Startup Experience</span>
     </div>
 
-    <!-- MAIN GRID -->
-    <div style="display:grid;grid-template-columns:1fr 460px;gap:52px;align-items:start;margin-bottom:28px">
+    <!-- MAIN GRID: left text, right cards stacked -->
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:52px;align-items:start;margin-bottom:28px">
 
       <!-- LEFT -->
       <div>
@@ -331,37 +331,54 @@ footer{border-top:1px solid var(--border);padding:20px clamp(20px,5vw,72px);disp
         </div>
       </div>
 
-      <!-- RIGHT: pitch deck card — taller with more visual weight -->
-      <div>
+      <!-- RIGHT: pitch deck card + Power BI below -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+
+        <!-- Pitch deck card -->
         <a href="MediFly.pdf" target="_blank" style="text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:block;transition:box-shadow .25s,transform .2s" onmouseover="this.style.boxShadow='0 10px 36px rgba(0,0,0,.1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-          <!-- tall dark preview -->
           <div style="background:#1C2E1E;padding:22px 24px 20px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
             <div style="position:absolute;right:-20px;bottom:-20px;width:130px;height:130px;border-radius:50%;background:rgba(107,143,113,.15)"></div>
             <div style="position:absolute;right:36px;top:-10px;width:60px;height:60px;border-radius:50%;background:rgba(107,143,113,.08)"></div>
             <div>
               <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between"><span>Venture Devils · ASU 2025</span><span>12 slides</span></div>
-              <div style="font-size:24px;font-weight:500;color:#fff;font-family:'Lora',serif;line-height:1.2;margin-bottom:6px">Medifly</div>
-              <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px">Medical Tourism, Reimagined.</div>
+              <div style="font-size:22px;font-weight:500;color:#fff;font-family:'Lora',serif;line-height:1.2;margin-bottom:6px">Medifly</div>
+              <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:14px">Medical Tourism, Reimagined.</div>
               <div style="font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.65;font-weight:300;margin-bottom:3px">Medifly is a coordination platform connecting patients seeking treatment abroad with accredited hospitals. We do not provide medical care ourselves.</div>
               <div style="font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300;font-style:italic">Medifly brings clarity, confidence, and compassion to every step of the healthcare journey.</div>
             </div>
-            <div>
-              <div style="display:flex;gap:5px;margin-top:20px">
-                <div style="height:3px;border-radius:2px;background:#6B8F71;width:32px"></div>
-                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:18px"></div>
-                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:22px"></div>
-                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:14px"></div>
-              </div>
+            <div style="display:flex;gap:5px;margin-top:16px">
+              <div style="height:3px;border-radius:2px;background:#6B8F71;width:32px"></div>
+              <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:18px"></div>
+              <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:22px"></div>
+              <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.15);width:14px"></div>
             </div>
           </div>
-          <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between">
             <div>
-              <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px">View Pitch Deck</div>
-              <div style="font-size:11px;color:var(--text3)">Opens in Google Drive ↗</div>
+              <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px">View Pitch Deck</div>
+              <div style="font-size:11px;color:var(--text3)">Opens in new tab ↗</div>
             </div>
-            <span style="font-size:20px;color:var(--sage)">↗</span>
+            <span style="font-size:18px;color:var(--sage)">↗</span>
           </div>
         </a>
+
+        <!-- Power BI thumbnail -->
+        <a href="https://app.powerbi.com/reportEmbed?reportId=6cc2dfbf-6973-49e4-9696-e672e7f48a64&autoAuth=true&ctid=41f88ecb-ca63-404d-97dd-ab0a169fd138" target="_blank" style="text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:block;transition:box-shadow .25s,transform .2s" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,.09)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="position:relative;overflow:hidden" onmouseover="this.querySelector('.pbi-ov').style.opacity='1'" onmouseout="this.querySelector('.pbi-ov').style.opacity='0'">
+            <img src="PowerBI.png" alt="MediFly Power BI Dashboard" style="width:100%;display:block;max-height:160px;object-fit:cover"/>
+            <div class="pbi-ov" style="position:absolute;inset:0;background:rgba(28,46,30,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s">
+              <span style="background:#fff;color:var(--sage);font-size:12px;font-weight:500;padding:8px 18px;border-radius:100px">View Interactive Dashboard ↗</span>
+            </div>
+          </div>
+          <div style="padding:11px 16px;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:1px">Market Research Dashboard</div>
+              <div style="font-size:10px;color:var(--text3)">Power BI · Click to open</div>
+            </div>
+            <div style="width:28px;height:28px;border-radius:7px;background:#F2E8D8;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px">📊</div>
+          </div>
+        </a>
+
       </div>
     </div>
 
@@ -383,20 +400,6 @@ footer{border-top:1px solid var(--border);padding:20px clamp(20px,5vw,72px);disp
         <div style="font-family:'Lora',serif;font-size:28px;color:var(--text);line-height:1"><span class="sm-count" data-target="2">0</span></div>
         <div style="font-size:11px;color:var(--text3);margin-top:4px">Live pitches delivered</div>
       </div>
-    </div>
-
-    <!-- POWER BI DASHBOARD -->
-    <div style="margin-top:24px;border:1px solid var(--border);border-radius:14px;overflow:hidden">
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:#fff">
-        <div style="width:8px;height:8px;border-radius:50%;background:var(--sage)"></div>
-        <span style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)">MediFly Market Research · Power BI Dashboard</span>
-      </div>
-      <a href="https://app.powerbi.com/reportEmbed?reportId=6cc2dfbf-6973-49e4-9696-e672e7f48a64&autoAuth=true&ctid=41f88ecb-ca63-404d-97dd-ab0a169fd138" target="_blank" style="display:block;position:relative;overflow:hidden" onmouseover="this.querySelector('.pbi-overlay').style.opacity='1'" onmouseout="this.querySelector('.pbi-overlay').style.opacity='0'">
-        <img src="PowerBI.png" alt="MediFly Power BI Dashboard" style="width:100%;display:block"/>
-        <div class="pbi-overlay" style="position:absolute;inset:0;background:rgba(28,46,30,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s">
-          <span style="background:#fff;color:var(--sage);font-size:13px;font-weight:500;padding:10px 22px;border-radius:100px;display:flex;align-items:center;gap:8px">View Interactive Dashboard ↗</span>
-        </div>
-      </a>
     </div>
 
   </div>
