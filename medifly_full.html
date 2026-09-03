@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MediFly — Healing Beyond Borders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f4f7fb;
+  --bg2:#ffffff;
+  --bg3:#f8fafd;
+  --bg4:#e8f0fc;
+  --border:rgba(26,58,107,.1);
+  --border2:rgba(26,58,107,.15);
+  --gold:#2e6fdb;
+  --gold2:#1a5fc8;
+  --gold-bg:rgba(46,111,219,.08);
+  --gold-border:rgba(46,111,219,.2);
+  --white:#ffffff;
+  --text:#1a3a6b;
+  --muted:#5a7a9a;
+  --dim:#8aaacc;
+  --green:#1aad6e;
+  --green-bg:rgba(26,173,110,.12);
+  --red:#e05050;
+  --red-bg:rgba(224,80,80,.12);
+  --blue:#4a90d9;
+  --blue-bg:rgba(74,144,217,.12);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:#f4f7fb;color:#1a3a6b;-webkit-font-smoothing:antialiased;}
+.hidden{display:none!important;}
+
+/* ── BUTTONS ── */
+.btn{border:none;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;letter-spacing:.01em;}
+.btn-gold{background:#1a6bcc;color:#ffffff;font-weight:600;}
+.btn-gold:hover{background:#2a7bdc;}
+.btn-outline{background:transparent;border:1px solid rgba(26,58,107,.15);color:#1a3a6b;}
+.btn-outline:hover{border-color:#2e6fdb;color:#2e6fdb;}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(26,58,107,.1);color:#5a7a9a;}
+.btn-ghost:hover{background:rgba(255,255,255,.1);color:#1a3a6b;}
+.btn-sm{padding:7px 16px;font-size:12px;}
+.btn-full{width:100%;}
+
+/* ══════════════════════
+   WEBSITE
+══════════════════════ */
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:66px;background:#f4f7fb;border-bottom:1px solid rgba(26,58,107,.1);position:sticky;top:0;z-index:100;}
+.logo{display:flex;flex-direction:column;cursor:pointer;}
+.logo-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#1a3a6b;}
+.logo-name span{color:#2e6fdb;}
+.logo-tag{font-size:9px;color:#2e6fdb;letter-spacing:.1em;text-transform:uppercase;margin-top:1px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-link{font-size:13px;color:#5a7a9a;cursor:pointer;transition:color .15s;}
+.nav-link:hover{color:#2e6fdb;}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;position:relative;overflow:hidden;background:#f4f7fb;}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(200,168,76,.06) 0%,transparent 65%);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;background:rgba(26,107,204,.08);color:#1a6bcc;border:1px solid rgba(26,107,204,.2);margin-bottom:28px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:58px;font-weight:600;line-height:1.08;letter-spacing:-.5px;max-width:760px;margin-bottom:18px;color:#1a3a6b;}
+.hero h1 em{font-style:italic;color:#1a6bcc;}
+.hero-sub{font-size:17px;color:#5a7a9a;max-width:520px;line-height:1.75;margin-bottom:40px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;justify-content:center;}
+.hero-stats{display:flex;gap:48px;margin-top:72px;padding-top:40px;border-top:1px solid rgba(26,58,107,.1);}
+.hs-n{font-family:'Playfair Display',serif;font-size:30px;color:#1a6bcc;font-weight:600;}
+.hs-l{font-size:11px;color:#5a7a9a;margin-top:4px;}
+.hdiv{width:1px;height:40px;background:rgba(26,58,107,.1);}
+
+/* HIW */
+.section{padding:88px 52px;background:#ffffff;}
+.sec-inner{max-width:1000px;margin:0 auto;}
+.sec-eye{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1a6bcc;margin-bottom:10px;}
+.sec-h{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;letter-spacing:-.3px;margin-bottom:8px;color:#1a3a6b;}
+.sec-sub{font-size:15px;color:#5a7a9a;max-width:500px;line-height:1.7;margin-bottom:40px;font-weight:300;}
+.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.hiw-card{background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:12px;padding:24px;transition:border-color .2s;}
+.hiw-card:hover{border-color:rgba(46,111,219,.2);}
+.hiw-num{width:34px;height:34px;border-radius:50%;background:#1a6bcc;color:#ffffff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:16px;}
+.hiw-card h3{font-size:14px;font-weight:600;margin-bottom:6px;color:#1a3a6b;}
+.hiw-card p{font-size:12px;color:#5a7a9a;line-height:1.65;}
+
+/* INQUIRY */
+.inquiry-wrap{background:#f4f7fb;border-top:1px solid rgba(26,58,107,.1);border-bottom:1px solid rgba(26,58,107,.1);padding:80px 52px;}
+.inquiry-inner{max-width:580px;margin:0 auto;text-align:center;}
+.form-card{background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:16px;padding:32px;margin-top:28px;text-align:left;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.frow.s{grid-template-columns:1fr;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:11px;font-weight:500;color:#5a7a9a;text-transform:uppercase;letter-spacing:.06em;}
+.field input,.field select,.field textarea{padding:11px 13px;border:1px solid rgba(26,58,107,.15);border-radius:8px;font-size:13px;background:#f8fafd;color:#1a3a6b;outline:none;font-family:'Inter',sans-serif;transition:border-color .15s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#2e6fdb;}
+.field select option{background:#f8fafd;}
+.field textarea{resize:none;height:80px;line-height:1.6;}
+.form-note{font-size:11px;color:#8aaacc;text-align:center;margin-top:10px;}
+.divider{border:none;border-top:1px solid rgba(26,58,107,.1);}
+
+footer{padding:24px 52px;background:#f4f7fb;border-top:1px solid rgba(26,58,107,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.foot-note{font-size:11px;color:#8aaacc;}
+
+/* ══════════════════════
+   PORTAL
+══════════════════════ */
+.portal{display:flex;height:100vh;background:#f4f7fb;}
+
+/* SIDEBAR */
+.sidebar{width:185px;background:#0f1f3d;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;flex-shrink:0;}
+.sb-logo{padding:20px 18px 16px;border-bottom:1px solid rgba(26,58,107,.1);}
+.sb-logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#ffffff;}
+.sb-logo-name span{color:#2e6fdb;}
+.sb-logo-tag{font-size:9px;color:#c8a84c;letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.sb-nav{flex:1;padding:10px 0;overflow-y:auto;}
+.ni{display:flex;align-items:center;gap:10px;padding:11px 18px;font-size:13px;color:rgba(255,255,255,.6);cursor:pointer;border-left:2px solid transparent;transition:all .15s;user-select:none;font-weight:400;}
+.ni svg{stroke:currentColor;flex-shrink:0;}
+.ni:hover{color:#c8a84c;background:rgba(200,168,76,.1);}
+.ni.on{color:#ffffff;background:rgba(255,255,255,.12);border-left-color:#2e6fdb;font-weight:600;}
+.ni.locked{opacity:.35;cursor:not-allowed;}
+.ni.locked:hover{color:#5a7a9a;background:transparent;}
+.ni-lock{font-size:9px;margin-left:auto;color:rgba(255,255,255,.3);}
+.sb-foot{padding:14px 18px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:10px;}
+.sb-av{width:32px;height:32px;border-radius:50%;background:#4a5a7a;border:1px solid #4a5a7a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#ffffff;flex-shrink:0;}
+
+/* MAIN */
+.portal-main{flex:1;overflow-y:auto;background:#f4f7fb;}
+.topbar{height:56px;background:#ffffff;border-bottom:1px solid rgba(26,58,107,.08);box-shadow:0 1px 3px rgba(26,58,107,.05);display:flex;align-items:center;justify-content:space-between;padding:0 24px;}
+.topbar-left{display:flex;flex-direction:column;}
+.topbar-title{font-size:16px;font-weight:600;color:#1a3a6b;}
+.topbar-sub{font-size:11px;color:#5a7a9a;}
+.topbar-right{display:flex;gap:10px;align-items:center;}
+.tb-btn{width:32px;height:32px;border-radius:50%;background:#f8fafd;border:1px solid rgba(26,58,107,.1);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.tb-btn svg{stroke:#5a7a9a;}
+.help-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:#f8fafd;border:1px solid rgba(26,58,107,.1);font-size:12px;color:#5a7a9a;cursor:pointer;}
+.help-btn:hover{border-color:#2e6fdb;color:#2e6fdb;}
+
+.pg{display:none;padding:24px;}
+.pg.on{display:block;}
+
+/* JOURNEY TRACKER */
+.journey-track{display:flex;align-items:flex-start;gap:0;overflow-x:auto;padding-bottom:4px;}
+.jstep{display:flex;flex-direction:column;align-items:center;flex:1;min-width:44px;}
+.jcircle{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;border:2px solid transparent;}
+.jc-done{background:#1a6bcc;color:#ffffff;border-color:#1a6bcc;}
+.jc-active{background:transparent;color:#1a6bcc;border-color:#1a6bcc;box-shadow:0 0 0 3px rgba(26,107,204,.15);}
+.jc-pend{background:#f0f4fa;color:#8aaacc;border-color:#c8d8ee;}
+.jlabel{font-size:8px;color:#5a7a9a;text-align:center;margin-top:6px;line-height:1.3;max-width:44px;}
+.jlabel.a{color:#2e6fdb;}
+.jline{flex:1;height:1px;margin-top:15px;}
+.jline-done{background:#1a6bcc;}
+.jline-pend{background:rgba(26,58,107,.15);}
+
+/* CARDS */
+.pcard{background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(26,58,107,.06);}
+.pcard-gold{border-color:rgba(46,111,219,.25);background:#f0f5ff;}
+.pct{font-size:10px;font-weight:600;color:#5a7a9a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
+.pct-gold{color:#1a6bcc;}
+.pinp{padding:10px 12px;border:1px solid rgba(26,58,107,.15);border-radius:8px;font-size:12px;background:#f8fafd;color:#1a3a6b;outline:none;font-family:'Inter',sans-serif;width:100%;transition:border-color .15s;}
+.pinp:focus{border-color:#2e6fdb;}
+.pinp[readonly]{color:#5a7a9a;}
+
+/* NOTIF BANNER */
+.notif{border-radius:10px;padding:14px 18px;display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;}
+.notif-gold{background:#eef3fc;border:1px solid rgba(46,111,219,.25);}
+.notif-blue{background:rgba(74,144,217,.12);border:1px solid rgba(74,144,217,.25);}
+.notif-green{background:rgba(26,173,110,.12);border:1px solid rgba(26,173,110,.25);}
+.notif-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.notif-icon svg{stroke:#1a6bcc;}
+.notif-blue .notif-icon svg{stroke:#4a90d9;}
+.notif-green .notif-icon svg{stroke:#1aad6e;}
+.notif-text{font-size:12px;color:#1a3a6b;line-height:1.6;}
+.notif-text strong{color:#1a6bcc;}
+.notif-blue .notif-text strong{color:#4a90d9;}
+.notif-green .notif-text strong{color:#1aad6e;}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;}
+
+/* STAT */
+.sbox{background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:16px;text-align:center;}
+.sn{font-family:'Playfair Display',serif;font-size:24px;color:#1a6bcc;font-weight:600;}
+.sl{font-size:10px;color:#5a7a9a;margin-top:4px;}
+
+/* CALENDAR */
+.cal-wrap{background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:16px;margin-bottom:14px;}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-month{font-size:13px;font-weight:600;color:#1a3a6b;}
+.cal-nav{width:28px;height:28px;border-radius:6px;background:#eef3fc;border:1px solid rgba(26,58,107,.1);cursor:pointer;display:flex;align-items:center;justify-content:center;color:#5a7a9a;}
+.cal-nav:hover{border-color:#2e6fdb;color:#2e6fdb;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-day-head{font-size:10px;color:#5a7a9a;text-align:center;padding:4px 0;font-weight:500;}
+.cal-day{text-align:center;padding:7px 2px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .15s;color:#1a3a6b;}
+.cal-day:hover{border-color:#2e6fdb;color:#2e6fdb;background:#f0f4fc;}
+.cal-day.selected{background:#1a6bcc;color:#ffffff;border-color:#1a6bcc;}
+.cal-day.disabled{color:#8aaacc;cursor:not-allowed;}
+.cal-day.disabled:hover{border-color:transparent;color:#8aaacc;}
+.cal-day.today{border-color:rgba(46,111,219,.2);color:#2e6fdb;}
+
+/* TIME SLOTS */
+.slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.slot{padding:9px;border-radius:8px;font-size:12px;font-weight:500;text-align:center;cursor:pointer;border:1px solid rgba(26,58,107,.15);color:#1a3a6b;transition:all .15s;}
+.slot:hover{border-color:#2e6fdb;color:#2e6fdb;background:#f0f4fc;}
+.slot.selected{background:#1a6bcc;color:#ffffff;border-color:#1a6bcc;}
+.slot.unavail{color:#8aaacc;cursor:not-allowed;border-color:rgba(26,58,107,.1);}
+.slot.unavail:hover{border-color:rgba(26,58,107,.1);color:#8aaacc;}
+
+/* RESOURCE ITEMS */
+.res-item{display:flex;align-items:center;gap:12px;padding:11px 14px;background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:9px;cursor:pointer;transition:all .15s;margin-bottom:8px;box-shadow:0 1px 3px rgba(26,58,107,.05);}
+.res-item:hover{border-color:#2e6fdb;box-shadow:0 2px 6px rgba(46,111,219,.1);}
+.res-icon{width:34px;height:34px;background:rgba(26,107,204,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.res-icon svg{stroke:#1a6bcc;}
+.res-title{font-size:13px;font-weight:500;color:#1a3a6b;}
+.res-sub{font-size:11px;color:#5a7a9a;margin-top:1px;}
+.res-arrow{margin-left:auto;flex-shrink:0;}
+.res-arrow svg{stroke:#8aaacc;}
+
+/* OPTIONS */
+.opt{border:1px solid rgba(26,58,107,.1);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;transition:all .2s;background:#ffffff;}
+.opt:hover{border-color:rgba(46,111,219,.2);}
+.opt.sel{border-color:#2e6fdb;background:rgba(200,168,76,.04);}
+.opt-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:10px;}
+.opt-n{font-size:13px;font-weight:600;color:#1a3a6b;}
+.opt-p{font-size:11px;font-weight:700;color:#1aad6e;background:rgba(26,173,110,.12);padding:3px 10px;border-radius:10px;white-space:nowrap;}
+.opt-d{font-size:11px;color:#5a7a9a;margin-bottom:8px;}
+.tags{display:flex;gap:5px;flex-wrap:wrap;}
+.tg{font-size:9px;padding:2px 8px;border-radius:8px;background:#f8fafd;color:#5a7a9a;border:1px solid rgba(26,58,107,.1);}
+
+/* TIMELINE */
+.tl-i{display:flex;gap:14px;padding-bottom:18px;}
+.tl-i:last-child{padding-bottom:0;}
+.tl-left{display:flex;flex-direction:column;align-items:center;width:30px;flex-shrink:0;}
+.tl-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.td-gold{background:rgba(46,111,219,.08);border:1px solid rgba(46,111,219,.2);}
+.td-gold svg{stroke:#2e6fdb;}
+.td-green{background:rgba(26,173,110,.12);border:1px solid rgba(26,173,110,.25);}
+.td-green svg{stroke:#1aad6e;}
+.tl-line{width:1px;flex:1;background:rgba(26,58,107,.1);min-height:14px;margin-top:4px;}
+.tl-t{font-size:13px;font-weight:500;color:#1a3a6b;margin-bottom:2px;padding-top:4px;}
+.tl-d{font-size:11px;color:#5a7a9a;line-height:1.5;}
+.tl-dt{font-size:10px;color:#8aaacc;margin-top:3px;}
+
+/* COORD */
+.cav{border-radius:50%;background:rgba(26,107,204,.08);border:1px solid rgba(26,107,204,.2);display:flex;align-items:center;justify-content:center;font-weight:700;color:#1a6bcc;flex-shrink:0;font-family:'Inter',sans-serif;}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#1aad6e;}
+.chats{display:flex;flex-direction:column;margin-bottom:14px;max-height:220px;overflow-y:auto;gap:0;}
+.cb{padding:10px 14px;border-radius:12px;font-size:12px;line-height:1.65;max-width:84%;margin-bottom:8px;}
+.them{background:#f8fafd;color:#1a3a6b;border-radius:4px 12px 12px 12px;border:1px solid rgba(26,58,107,.1);}
+.me{background:#1a6bcc;color:#ffffff;margin-left:auto;border-radius:12px 4px 12px 12px;font-weight:500;}
+
+/* DOCS */
+.doc-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(26,58,107,.1);}
+.doc-row:last-child{border-bottom:none;}
+.dl{display:flex;align-items:center;gap:12px;}
+.di{width:32px;height:32px;background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.di svg{stroke:#5a7a9a;}
+.di.gd{background:rgba(46,111,219,.08);border-color:rgba(46,111,219,.2);}
+.di.gd svg{stroke:#2e6fdb;}
+.dn{font-size:12px;font-weight:500;color:#1a3a6b;}
+.dd{font-size:10px;color:#5a7a9a;margin-top:1px;}
+
+/* FOLLOW UP */
+.fu{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid rgba(26,58,107,.1);border-radius:10px;margin-bottom:10px;background:#ffffff;}
+.fu-l{display:flex;align-items:center;gap:12px;}
+.fu-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fi-r{background:rgba(224,80,80,.12);}
+.fi-r svg{stroke:#e05050;}
+.fi-b{background:rgba(74,144,217,.12);}
+.fi-b svg{stroke:#4a90d9;}
+.fi-gr{background:rgba(26,173,110,.12);}
+.fi-gr svg{stroke:#1aad6e;}
+.fu-t{font-size:12px;font-weight:500;color:#1a3a6b;}
+.fu-d{font-size:11px;color:#5a7a9a;margin-top:1px;}
+.badge{font-size:10px;padding:3px 10px;border-radius:10px;font-weight:600;white-space:nowrap;}
+.br{background:rgba(224,80,80,.12);color:#e05050;}
+.ba{background:rgba(46,111,219,.08);color:#2e6fdb;}
+.bg{background:rgba(26,173,110,.12);color:#1aad6e;}
+
+/* CHECKLIST */
+.ck-item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(26,58,107,.1);}
+.ck-item:last-child{border-bottom:none;}
+.ck-box{width:20px;height:20px;border-radius:5px;border:1.5px solid rgba(26,58,107,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;margin-top:1px;font-size:11px;transition:all .15s;}
+.ck-box.chk{background:#2e6fdb;border-color:#2e6fdb;color:#0a0f1a;}
+.ck-text{font-size:12px;color:#1a3a6b;line-height:1.6;}
+.ck-text.done{text-decoration:line-through;color:#8aaacc;}
+
+/* PHASE TABS */
+.phase-tabs{display:flex;gap:8px;margin-bottom:18px;}
+.ptab{font-size:12px;padding:7px 16px;border-radius:20px;border:1px solid rgba(26,58,107,.15);background:transparent;color:#5a7a9a;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}
+.ptab:hover{border-color:rgba(46,111,219,.2);color:#2e6fdb;}
+.ptab.active{background:#2e6fdb;color:#0a0f1a;border-color:#2e6fdb;font-weight:600;}
+
+/* FORM */
+.pfrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.pfrow.s{grid-template-columns:1fr;}
+.plbl{font-size:11px;font-weight:500;color:#5a7a9a;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px;}
+
+/* COMPLETE */
+.complete-banner{background:rgba(26,173,110,.12);border:1px solid rgba(26,173,110,.25);border-radius:12px;padding:28px;text-align:center;}
+
+/* UPLOAD */
+.upload-box{border:2px dashed rgba(26,58,107,.15);border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:border-color .15s;}
+.upload-box:hover{border-color:#2e6fdb;}
+
+/* DOCTOR REQ */
+.dr-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(26,58,107,.1);}
+.dr-item:last-child{border-bottom:none;}
+.dr-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+
+/* SECTION LABEL */
+.sec-label-sm{font-size:10px;font-weight:600;color:#2e6fdb;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.sec-label-sm::after{content:'';flex:1;height:1px;background:rgba(46,111,219,.2);}
+
+/* PILL */
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500;}
+.pill-gold{background:rgba(26,107,204,.08);color:#1a6bcc;border:1px solid rgba(26,107,204,.2);}
+.pill-green{background:rgba(26,173,110,.12);color:#1aad6e;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ WEBSITE ═══════════ -->
+<div id="website">
+
+  <!-- LANDING -->
+  <div id="s-landing">
+    <nav class="site-nav">
+      <div class="logo"><div class="logo-name" style="color:#1a3a6b;">Medi<span style="color:#1a6bcc;">Fly</span></div><div class="logo-tag">Healing Beyond Borders</div></div>
+      <div class="nav-links">
+        <span class="nav-link">How it works</span>
+        <span class="nav-link">Why India</span>
+        <span class="nav-link">About</span>
+        <button class="btn btn-outline btn-sm" onclick="showW('s-inquiry')">Patient Portal</button>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-tag">✦ Medical Tourism · India · Orthopedics</div>
+      <h1>World-Class Care.<br><em>Healing Beyond Borders.</em></h1>
+      <p class="hero-sub">We connect US patients to accredited orthopedic hospitals in India — verified care, dedicated coordination, and support every step of the way.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gold" onclick="showW('s-inquiry')">Sign Up Free →</button>
+        <button class="btn btn-ghost">See how it works ↓</button>
+      </div>
+      <div class="hero-stats">
+        <div style="text-align:center;"><div class="hs-n">82%</div><div class="hs-l">Average cost savings</div></div>
+        <div class="hdiv"></div>
+        <div style="text-align:center;"><div class="hs-n">$7,500</div><div class="hs-l">Knee replacement in India</div></div>
+        <div class="hdiv"></div>
+        <div style="text-align:center;"><div class="hs-n">JCI</div><div class="hs-l">Accredited hospitals only</div></div>
+        <div class="hdiv"></div>
+        <div style="text-align:center;"><div class="hs-n">48hrs</div><div class="hs-l">To receive your options</div></div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <div class="section">
+      <div class="sec-inner">
+        <div class="sec-eye">How it works</div>
+        <h2 class="sec-h">Simple. Transparent. Seamless.</h2>
+        <div class="hiw-grid">
+          <div class="hiw-card"><div class="hiw-num">1</div><h3>Sign up free</h3><p>Create your account. Get instant access to procedure guides, hospital info, and FAQs.</p></div>
+          <div class="hiw-card"><div class="hiw-num">2</div><h3>Book welcome call</h3><p>Book a free 15-min welcome call inside your portal at your convenience. Full access unlocks after.</p></div>
+          <div class="hiw-card"><div class="hiw-num">3</div><h3>Meet your coordinator</h3><p>A dedicated case manager is assigned. They stay with you from intake to full recovery.</p></div>
+          <div class="hiw-card"><div class="hiw-num">4</div><h3>Travel with confidence</h3><p>Hospital confirmed, travel arranged, accommodation sorted. We are with you every step.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <div class="inquiry-wrap">
+      <div class="inquiry-inner">
+        <div class="sec-eye" style="text-align:center;">Start your journey</div>
+        <h2 class="sec-h" style="font-size:28px;text-align:center;color:#1a3a6b;">Create your free account</h2>
+        <p style="font-size:13px;color:#5a7a9a;margin-top:6px;">No commitment. Instant access to resources. Welcome call at your convenience.</p>
+        <div class="form-card">
+          <div class="frow">
+            <div class="field"><label>First name</label><input type="text" placeholder="Sarah"/></div>
+            <div class="field"><label>Last name</label><input type="text" placeholder="Mitchell"/></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Email address</label><input type="email" placeholder="sarah@email.com"/></div>
+            <div class="field"><label>Phone number</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Procedure needed</label>
+              <select><option>Knee replacement</option><option>Hip replacement</option><option>Spine surgery</option><option>Shoulder replacement</option></select>
+            </div>
+            <div class="field"><label>Budget (USD)</label>
+              <select><option>Under $10,000</option><option>$10,000 – $20,000</option><option>$20,000+</option></select>
+            </div>
+          </div>
+          <div class="frow s">
+            <div class="field"><label>Brief situation</label>
+              <textarea placeholder="e.g. I've been quoted $42,000 for a knee replacement and my insurance won't cover it..."></textarea>
+            </div>
+          </div>
+          <button class="btn btn-gold btn-full" style="margin-top:6px;" onclick="enterPortal()">Sign up free — Enter my portal →</button>
+          <div class="form-note">🔒 Your details are never shared or sold.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="logo"><div class="logo-name" style="font-size:16px;">Medi<span>Fly</span></div><div class="logo-tag">Healing Beyond Borders</div></div>
+      <div class="foot-note">© 2025 MediFly LLC · Not medical advice · US-based · Wyoming LLC</div>
+      <div class="foot-note" style="color:#5a7a9a;">hello@medifly.com</div>
+    </footer>
+  </div>
+
+  <!-- INQUIRY PAGE -->
+  <div id="s-inquiry" class="hidden">
+    <nav class="site-nav">
+      <div class="logo" onclick="showW('s-landing')" style="cursor:pointer;"><div class="logo-name" style="color:#1a3a6b;">Medi<span style="color:#1a6bcc;">Fly</span></div><div class="logo-tag">Healing Beyond Borders</div></div>
+      <div class="nav-links"><span class="nav-link" onclick="showW('s-landing')">← Back to home</span></div>
+    </nav>
+    <div style="max-width:560px;margin:56px auto;padding:0 24px;">
+      <div class="sec-eye">Sign up — it's free</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:#1a3a6b;margin-bottom:6px;letter-spacing:-.2px;">Create your account</h2>
+      <p style="font-size:13px;color:#5a7a9a;margin-bottom:28px;line-height:1.6;">Instant access. No commitment. Welcome call at your convenience.</p>
+      <div class="form-card">
+        <div class="frow">
+          <div class="field"><label>First name</label><input type="text" placeholder="Sarah"/></div>
+          <div class="field"><label>Last name</label><input type="text" placeholder="Mitchell"/></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Email</label><input type="email" placeholder="sarah@email.com"/></div>
+          <div class="field"><label>Phone</label><input type="tel" placeholder="+1 555-0000"/></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Procedure needed</label>
+            <select><option>Knee replacement</option><option>Hip replacement</option><option>Spine surgery</option><option>Shoulder replacement</option></select>
+          </div>
+          <div class="field"><label>Budget (USD)</label>
+            <select><option>Under $10,000</option><option>$10,000 – $20,000</option><option>$20,000+</option></select>
+          </div>
+        </div>
+        <div class="frow s">
+          <div class="field"><label>Brief situation</label>
+            <textarea placeholder="e.g. I've been quoted $42,000 for a knee replacement and my insurance won't cover it..."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-full" style="margin-top:6px;" onclick="enterPortal()">Sign up free — Enter my portal →</button>
+        <div class="form-note">🔒 Never shared. Never sold.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end website -->
+
+<!-- ═══════════ PORTAL ═══════════ -->
+<div id="portal" class="portal hidden">
+
+  <div class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-name">Medi<span>Fly</span></div>
+      <div class="sb-logo-tag" style="color:#c8a84c;letter-spacing:.1em;text-transform:uppercase;font-size:9px;">Healing Beyond Borders</div>
+    </div>
+    <div class="sb-nav">
+      <div class="ni on"  id="ni-overview"     onclick="gp('overview',this)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </div>
+      <div class="ni locked" id="ni-intake"    onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Medical Intake<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-coordinator" onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Coordinator<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-hospitals"   onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        Hospitals<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-doctor"      onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Doctor Call<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-travel"      onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        Travel & Stay<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-checklist"   onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Pre-Travel<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-onground"    onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        On The Ground<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-documents"   onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Documents<span class="ni-lock">🔒</span>
+      </div>
+      <div class="ni locked" id="ni-followup"    onclick="lockedMsg()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        Follow-up<span class="ni-lock">🔒</span>
+      </div>
+    </div>
+    <div class="sb-foot">
+      <div class="sb-av">SM</div>
+      <div><div style="font-size:12px;font-weight:500;color:#1a3a6b;">Sarah M.</div><div style="font-size:10px;color:#5a7a9a;">Patient</div></div>
+    </div>
+  </div>
+
+  <div class="portal-main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title" id="topbar-title">Welcome back, Sarah 👋</div>
+        <div class="topbar-sub" id="topbar-sub">Here's the status of your medical journey</div>
+      </div>
+      <div class="topbar-right">
+        <div class="tb-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <div class="help-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Need help?
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD / OVERVIEW -->
+    <div id="pg-overview" class="pg on">
+
+      <!-- JOURNEY TRACKER -->
+      <div class="pcard" style="margin-bottom:16px;">
+        <div class="pct">YOUR NEXT STEP</div>
+        <div class="journey-track">
+          <div class="jstep"><div class="jcircle jc-done"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div class="jlabel">Apply</div></div>
+          <div class="jline jline-done"></div>
+          <div class="jstep"><div class="jcircle jc-active">03</div><div class="jlabel a">Intake</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">04</div><div class="jlabel">Coordinator</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">05</div><div class="jlabel">Options</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">06</div><div class="jlabel">Doctor</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">07</div><div class="jlabel">Travel</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">08</div><div class="jlabel">Treatment</div></div>
+          <div class="jline jline-pend"></div>
+          <div class="jstep"><div class="jcircle jc-pend">09</div><div class="jlabel">Recovery</div></div>
+        </div>
+      </div>
+
+      <div class="g2">
+        <!-- BOOK WELCOME CALL -->
+        <div class="pcard pcard-gold">
+          <div class="pct pct-gold">YOUR NEXT STEP</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(46,111,219,.08);border:1px solid rgba(46,111,219,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1a3a6b;">Book Welcome Call</div>
+              <span class="pill pill-gold" style="margin-top:4px;display:inline-flex;">Free 15-minute call</span>
+            </div>
+          </div>
+          <p style="font-size:12px;color:#5a7a9a;line-height:1.65;margin-bottom:16px;">Meet your MediFly team. Ask anything. Unlock full portal access.</p>
+
+          <!-- CALENDAR -->
+          <div style="font-size:11px;font-weight:600;color:#5a7a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Pick a date & time</div>
+          <div class="cal-wrap" style="padding:12px;">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="calPrev()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+              </button>
+              <div class="cal-month" id="cal-month-label"></div>
+              <button class="cal-nav" onclick="calNext()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+              </button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+
+          <!-- TIME SLOTS -->
+          <div id="slots-section" style="display:none;">
+            <div style="font-size:11px;font-weight:600;color:#5a7a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Available times</div>
+            <div class="slots-grid" id="slots-grid"></div>
+          </div>
+
+          <!-- BOOKED CONFIRM -->
+          <div id="booked-banner" class="hidden notif notif-green" style="margin-bottom:12px;">
+            <div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div>
+            <div class="notif-text"><strong>Welcome call booked!</strong> <span id="booked-detail"></span> Calendar invite sent to sarah@email.com</div>
+          </div>
+
+          <button class="btn btn-gold btn-full" id="confirm-btn" style="display:none;" onclick="confirmWelcomeCall()">Confirm & Book Call →</button>
+          <p style="font-size:11px;color:#8aaacc;text-align:center;margin-top:8px;">You'll receive a calendar invite and email confirmation.</p>
+
+          <!-- AFTER BOOKING -->
+          <div id="after-booking" class="hidden" style="margin-top:10px;">
+            <p style="font-size:11px;color:#5a7a9a;margin-bottom:8px;text-align:center;">Demo — simulate completed call to unlock full portal</p>
+            <button class="btn btn-outline btn-full btn-sm" onclick="unlockFullPortal()">✓ Call complete — Unlock full portal →</button>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <!-- AVAILABLE NOW -->
+          <div class="pcard">
+            <div class="pct">AVAILABLE NOW — WHILE YOU WAIT</div>
+            <div class="res-item">
+              <div class="res-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+              <div><div class="res-title">Procedure guides</div><div class="res-sub">Know the process, costs and recovery</div></div>
+              <div class="res-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg></div>
+            </div>
+            <div class="res-item">
+              <div class="res-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+              <div><div class="res-title">India hospital overview</div><div class="res-sub">Top accredited hospitals, cities, and care</div></div>
+              <div class="res-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg></div>
+            </div>
+            <div class="res-item">
+              <div class="res-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+              <div><div class="res-title">FAQ</div><div class="res-sub">Safety, costs, travel, recovery answered</div></div>
+              <div class="res-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg></div>
+            </div>
+            <div class="res-item" style="margin-bottom:0;">
+              <div class="res-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+              <div><div class="res-title">Upload documents early</div><div class="res-sub">Get ahead — upload ID & reports now</div></div>
+              <div class="res-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg></div>
+            </div>
+          </div>
+
+          <!-- UNLOCK PREVIEW -->
+          <div class="pcard" style="background:#f8fafd;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+              <span style="font-size:10px;font-weight:600;color:#2e6fdb;text-transform:uppercase;letter-spacing:.08em;">After your welcome call — we'll unlock</span>
+            </div>
+            <div style="font-size:12px;color:#5a7a9a;line-height:1.9;">
+              intake, coordinator, hospital options,<br>
+              doctor call, travel planning, and full<br>
+              <span style="color:#2e6fdb;font-weight:500;">recovery support instantly.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM TRUST ROW -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px;">
+        <div style="background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><div style="font-size:12px;font-weight:500;color:#1a3a6b;">Secure & Private</div><div style="font-size:10px;color:#5a7a9a;">Your data is safe with us</div></div>
+        </div>
+        <div style="background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><div style="font-size:12px;font-weight:500;color:#1a3a6b;">No Hidden Costs</div><div style="font-size:10px;color:#5a7a9a;">Transparent, always</div></div>
+        </div>
+        <div style="background:#ffffff;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div><div style="font-size:12px;font-weight:500;color:#1a3a6b;">Dedicated Support</div><div style="font-size:10px;color:#5a7a9a;">We're here for you 24/7</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTAKE -->
+    <div id="pg-intake" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Medical intake form</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Helps us match you with the right specialist. All information is confidential.</div>
+      <div class="pcard">
+        <div class="pct">Medical history</div>
+        <div class="pfrow">
+          <div><label class="plbl">Current diagnosis</label><input class="pinp" value="Severe osteoarthritis — Grade 4, left knee"/></div>
+          <div><label class="plbl">Duration</label><input class="pinp" value="3 years"/></div>
+        </div>
+        <div class="pfrow">
+          <div><label class="plbl">Previous surgeries</label><input class="pinp" value="None"/></div>
+          <div><label class="plbl">Current medications</label><input class="pinp" value="Ibuprofen, Calcium supplements"/></div>
+        </div>
+        <div class="pfrow">
+          <div><label class="plbl">Allergies</label><input class="pinp" value="None known"/></div>
+          <div><label class="plbl">Blood type</label><input class="pinp" value="O positive"/></div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Upload reports</div>
+        <p style="font-size:12px;color:#5a7a9a;margin-bottom:12px;line-height:1.6;">Upload MRI scans, X-rays, or blood test results. Your doctor will review these before making recommendations.</p>
+        <div class="upload-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div style="font-size:12px;color:#2e6fdb;font-weight:500;">Click to upload files</div>
+          <div style="font-size:11px;color:#5a7a9a;margin-top:4px;">MRI_left_knee.pdf · X-ray_Nov2024.jpg</div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Additional notes</div>
+        <label class="plbl">Anything we should know?</label>
+        <textarea class="pinp" style="height:72px;resize:none;">I will be travelling alone. Concerned about language barriers and managing recovery independently.</textarea>
+      </div>
+      <button class="btn btn-gold" onclick="completeIntake()">Submit intake & unlock coordinator →</button>
+    </div>
+
+    <!-- COORDINATOR -->
+    <div id="pg-coordinator" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Your coordinator</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Anya has reviewed your intake and is ready for your free call.</div>
+      <div class="notif notif-gold" style="margin-bottom:16px;">
+        <div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div class="notif-text"><strong>Coordinator assigned.</strong> Anya Desai has reviewed your medical intake and is ready. Your first call is completely free.</div>
+      </div>
+      <div class="g2">
+        <div class="pcard">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div class="cav" style="width:48px;height:48px;font-size:15px;">AD</div>
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1a3a6b;">Anya Desai</div>
+              <div style="font-size:11px;color:#5a7a9a;">Case Manager · MediFly India</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><div class="online-dot"></div><span style="font-size:11px;color:#1aad6e;">Available now</span></div>
+            </div>
+          </div>
+          <button class="btn btn-gold btn-full btn-sm">📞 Book free 30-min call</button>
+          <button class="btn btn-outline btn-full btn-sm" style="margin-top:8px;">💬 Send a message</button>
+        </div>
+        <div class="pcard">
+          <div class="pct">What to expect</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:12px;color:#1a3a6b;display:flex;gap:8px;line-height:1.5;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span>Review of your medical intake</div>
+            <div style="font-size:12px;color:#1a3a6b;display:flex;gap:8px;line-height:1.5;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span>Walkthrough of your treatment options</div>
+            <div style="font-size:12px;color:#1a3a6b;display:flex;gap:8px;line-height:1.5;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span>Your questions about travel and recovery</div>
+            <div style="font-size:12px;color:#1a3a6b;display:flex;gap:8px;line-height:1.5;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span>Timeline and cost walkthrough</div>
+            <div style="font-size:12px;color:#5a7a9a;display:flex;gap:8px;line-height:1.5;"><span style="color:#1aad6e;flex-shrink:0;">✓</span>No pressure — purely informational</div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Messages</div>
+        <div class="chats">
+          <div class="cb them">Hi Sarah! I'm Anya, your dedicated case manager. I've reviewed your intake — thank you for the detail. I can see you're concerned about travelling alone. I want to reassure you that many of our patients travel solo and we take care of everything on the ground.</div>
+          <div class="cb me">That's really reassuring. I've been nervous about the whole process honestly.</div>
+          <div class="cb them">Completely understandable. Based on your Grade 4 osteoarthritis and your budget, I've put together 3 strong options — all JCI-accredited, all with English-speaking teams. Ready to take a look?</div>
+          <div class="cb me">Yes — let's see them!</div>
+          <div class="cb them">Perfect. I'll also arrange a short call with the doctor at your chosen hospital before you commit — completely free. Click below to see your options.</div>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <input class="pinp" placeholder="Type a message..." style="flex:1;"/>
+          <button class="btn btn-gold btn-sm" style="width:auto;">Send →</button>
+        </div>
+        <button class="btn btn-gold btn-full" onclick="unlockHospitals()">View my hospital options →</button>
+      </div>
+    </div>
+
+    <!-- HOSPITALS -->
+    <div id="pg-hospitals" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Your hospital options</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">3 curated matches based on your procedure, budget, and situation.</div>
+      <div onclick="selOpt(this)" class="opt sel">
+        <div class="opt-h"><div><div class="opt-n">Apollo Hospitals — Chennai</div><div class="opt-d">Dr. Rajesh Kumar · 22 yrs · 1,400+ knee replacements · MS Ortho, Royal College of Surgeons UK</div></div><div class="opt-p">$8,200 all-in</div></div>
+        <div class="tags"><span class="tg">JCI accredited</span><span class="tg">UK-trained surgeon</span><span class="tg">Zimmer Biomet implant</span><span class="tg">Serviced apt</span><span class="tg">English-speaking team</span></div>
+      </div>
+      <div onclick="selOpt(this)" class="opt">
+        <div class="opt-h"><div><div class="opt-n">Fortis Hospital — Bangalore</div><div class="opt-d">Dr. Priya Sharma · 18 yrs · 980+ knee replacements · Fellowship, University of Edinburgh</div></div><div class="opt-p">$7,600 all-in</div></div>
+        <div class="tags"><span class="tg">JCI accredited</span><span class="tg">UK-trained surgeon</span><span class="tg">Smith & Nephew implant</span><span class="tg">Serviced apt</span></div>
+      </div>
+      <div onclick="selOpt(this)" class="opt">
+        <div class="opt-h"><div><div class="opt-n">Manipal Hospital — Delhi</div><div class="opt-d">Dr. Anil Mehta · 25 yrs · 2,100+ knee replacements · MS Ortho, AIIMS Delhi</div></div><div class="opt-p">$9,100 all-in</div></div>
+        <div class="tags"><span class="tg">JCI accredited</span><span class="tg">Premium suite</span><span class="tg">Stryker implant</span></div>
+      </div>
+      <div class="pcard" style="margin-top:4px;">
+        <div class="pct">Anya's recommendation</div>
+        <div style="font-size:13px;color:#1a3a6b;line-height:1.75;">Based on your solo travel situation, Grade 4 diagnosis, and $10–20K budget — <strong style="color:#2e6fdb;">Apollo Chennai</strong> is the strongest match. Dr. Kumar has extensive experience with similar cases and the serviced apartment setup is excellent for solo patients.</div>
+      </div>
+      <button class="btn btn-gold" onclick="unlockDoctor()">Apollo confirmed — book doctor call →</button>
+    </div>
+
+    <!-- DOCTOR CALL -->
+    <div id="pg-doctor" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Doctor review call</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Free call with Dr. Rajesh Kumar, Apollo Hospitals Chennai.</div>
+      <div class="notif notif-gold">
+        <div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div class="notif-text"><strong>Dr. Kumar has reviewed your reports.</strong> He has confirmed you are a suitable candidate for knee replacement. Call scheduled for Mar 10 at 2:00 PM EST.</div>
+      </div>
+      <div class="g2">
+        <div class="pcard">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+            <div class="cav" style="width:48px;height:48px;font-size:15px;background:rgba(74,144,217,.12);border-color:rgba(74,144,217,.3);color:#4a90d9;">RK</div>
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1a3a6b;">Dr. Rajesh Kumar</div>
+              <div style="font-size:11px;color:#5a7a9a;">Orthopedic Surgeon · Apollo Chennai</div>
+              <div style="font-size:11px;color:#2e6fdb;margin-top:2px;">MS Ortho · 22 years · 1,400+ surgeries</div>
+            </div>
+          </div>
+          <div style="font-size:12px;color:#5a7a9a;line-height:1.65;margin-bottom:14px;">Trained at the Royal College of Surgeons, UK. Specialist in minimally invasive knee replacement.</div>
+          <button class="btn btn-gold btn-full btn-sm">📞 Join call — Mar 10, 2:00 PM EST</button>
+        </div>
+        <div class="pcard">
+          <div class="pct">Pre-surgery requirements</div>
+          <div class="dr-item"><div class="dr-icon">⚠️</div><div style="font-size:12px;color:#1a3a6b;line-height:1.55;">Stop ibuprofen <strong style="color:#1a3a6b;">2 weeks before travel</strong></div></div>
+          <div class="dr-item"><div class="dr-icon" style="color:#2e6fdb;">→</div><div style="font-size:12px;color:#1a3a6b;line-height:1.55;">Get CBC blood test done locally — upload to portal</div></div>
+          <div class="dr-item"><div class="dr-icon" style="color:#2e6fdb;">→</div><div style="font-size:12px;color:#1a3a6b;line-height:1.55;">Bring original MRI films — not just digital</div></div>
+          <div class="dr-item"><div class="dr-icon" style="color:#1aad6e;">✓</div><div style="font-size:12px;color:#1aad6e;line-height:1.55;">No cardiac concerns — cleared for surgery</div></div>
+        </div>
+      </div>
+      <button class="btn btn-gold" style="margin-top:4px;" onclick="unlockTravel()">Doctor confirmed — arrange travel →</button>
+    </div>
+
+    <!-- TRAVEL -->
+    <div id="pg-travel" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Travel & stay</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Everything confirmed. Your complete journey is planned.</div>
+      <div class="g3">
+        <div class="sbox"><div class="sn">Mar 29</div><div class="sl">Travel date</div></div>
+        <div class="sbox"><div class="sn">$8,200</div><div class="sl">Total cost</div></div>
+        <div class="sbox"><div class="sn">14 days</div><div class="sl">Estimated stay</div></div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Journey timeline</div>
+        <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div class="tl-line"></div></div><div><div class="tl-t">Pre-travel checklist sent</div><div class="tl-d">What to pack, medications, documents</div><div class="tl-dt">Mar 15</div></div></div>
+        <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></div><div class="tl-line"></div></div><div><div class="tl-t">Fly to Chennai</div><div class="tl-d">Airport pickup arranged · Serviced apartment ready</div><div class="tl-dt">Mar 29</div></div></div>
+        <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="tl-line"></div></div><div><div class="tl-t">Pre-op — Dr. Kumar</div><div class="tl-d">Apollo Hospitals · Final review</div><div class="tl-dt">Mar 31</div></div></div>
+        <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="tl-line"></div></div><div><div class="tl-t">Knee replacement surgery</div><div class="tl-d">2–3 hour procedure · 3 night hospital stay</div><div class="tl-dt">Apr 2</div></div></div>
+        <div class="tl-i"><div class="tl-left"><div class="tl-dot td-green"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div></div><div><div class="tl-t">Return home</div><div class="tl-d">Post-op cleared · Follow-up portal activated</div><div class="tl-dt">Apr 12</div></div></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-gold btn-sm" onclick="gp('checklist',document.getElementById('ni-checklist'))">View pre-travel checklist →</button>
+        <button class="btn btn-outline btn-sm" onclick="gp('onground',document.getElementById('ni-onground'))">On the ground guide →</button>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div id="pg-checklist" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Pre-travel checklist</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Complete these before Mar 29. Tick each item as you go.</div>
+      <div class="pcard">
+        <div class="pct">Medical preparation</div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Stop taking ibuprofen — 2 weeks before travel (by Mar 15)</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Get CBC blood test done locally — upload results to portal</div></div>
+        <div class="ck-item"><div class="ck-box chk" onclick="tck(this)">✓</div><div class="ck-text done">Upload original MRI films to portal</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Pack all current medications with prescription letters</div></div>
+        <div class="ck-item"><div class="ck-box chk" onclick="tck(this)">✓</div><div class="ck-text done">Medical travel insurance confirmed</div></div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Travel & documents</div>
+        <div class="ck-item"><div class="ck-box chk" onclick="tck(this)">✓</div><div class="ck-text done">Passport valid for at least 6 months</div></div>
+        <div class="ck-item"><div class="ck-box chk" onclick="tck(this)">✓</div><div class="ck-text done">India e-visa approved</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Download MediFly emergency contact card</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Print hospital booking confirmation</div></div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Packing essentials</div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Comfortable loose clothing — allows for knee movement post-surgery</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Slip-on shoes — no laces, easier to manage post-op</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Compression socks for the flight</div></div>
+        <div class="ck-item"><div class="ck-box" onclick="tck(this)"></div><div class="ck-text">Small pillow for leg elevation during flight</div></div>
+      </div>
+    </div>
+
+    <!-- ON THE GROUND -->
+    <div id="pg-onground" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">On the ground</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">You're on your way. MediFly is with you every step from here.</div>
+      <div class="phase-tabs">
+        <button class="ptab active" id="ptab-1" onclick="showPhase(1)">✈ Flying</button>
+        <button class="ptab" id="ptab-2" onclick="showPhase(2)">🛬 Arrival</button>
+        <button class="ptab" id="ptab-3" onclick="showPhase(3)">🏥 Day before surgery</button>
+      </div>
+      <div id="phase-1">
+        <div class="notif notif-gold"><div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div class="notif-text"><strong>You're on your way.</strong> Flight to Chennai departs Mar 29 at 9:30 AM. Anya has been notified.</div></div>
+        <div class="g2">
+          <div class="pcard">
+            <div class="pct">Flight details</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Flight</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">AI 102 · Air India</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Departure</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">JFK · 9:30 AM Mar 29</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Arrival</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">MAA Chennai · 11:15 PM</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:12px;color:#5a7a9a;">Duration</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">~17 hours</span></div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="pct">Emergency contacts</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="padding:10px;background:#f8fafd;border-radius:8px;border:1px solid rgba(26,58,107,.1);"><div style="font-size:12px;font-weight:500;color:#1a3a6b;">Anya Desai</div><div style="font-size:11px;color:#2e6fdb;">+91 98xxx xxxxx</div><div style="font-size:10px;color:#5a7a9a;">MediFly coordinator</div></div>
+              <div style="padding:10px;background:#f8fafd;border-radius:8px;border:1px solid rgba(26,58,107,.1);"><div style="font-size:12px;font-weight:500;color:#1a3a6b;">Apollo Hospitals</div><div style="font-size:11px;color:#2e6fdb;">+91 44 2829 3333</div><div style="font-size:10px;color:#5a7a9a;">International desk</div></div>
+              <div style="padding:10px;background:#f8fafd;border-radius:8px;border:1px solid rgba(26,58,107,.1);"><div style="font-size:12px;font-weight:500;color:#1a3a6b;">India Emergency</div><div style="font-size:11px;color:#2e6fdb;">112</div><div style="font-size:10px;color:#5a7a9a;">All emergencies</div></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-sm" onclick="showPhase(2)">I've landed — next steps →</button>
+      </div>
+      <div id="phase-2" class="hidden">
+        <div class="notif notif-gold"><div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div class="notif-text"><strong>Welcome to Chennai, Sarah.</strong> Anya has been notified. Your driver is waiting at arrivals.</div></div>
+        <div class="pcard">
+          <div class="pct">Step by step — from plane to apartment</div>
+          <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold" style="font-size:11px;font-weight:700;color:#2e6fdb;">1</div><div class="tl-line"></div></div><div><div class="tl-t">Clear immigration & customs</div><div class="tl-d">Your India e-visa is in your documents. Follow signs for "E-Visa on Arrival".</div></div></div>
+          <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold" style="font-size:11px;font-weight:700;color:#2e6fdb;">2</div><div class="tl-line"></div></div><div><div class="tl-t">Look for your sign</div><div class="tl-d">Driver Ravi holding <strong style="color:#2e6fdb;">"SARAH — MEDIFLY"</strong> sign. Right side as you exit arrivals.</div></div></div>
+          <div class="tl-i"><div class="tl-left"><div class="tl-dot td-gold" style="font-size:11px;font-weight:700;color:#2e6fdb;">3</div><div class="tl-line"></div></div><div><div class="tl-t">Your driver</div><div class="tl-d">Ravi Kumar · White Toyota Innova · Plate: TN 09 AX 4521 · <span style="color:#2e6fdb;">+91 97xxx xxxxx</span></div></div></div>
+          <div class="tl-i"><div class="tl-left"><div class="tl-dot td-green" style="font-size:11px;font-weight:700;color:#1aad6e;">4</div></div><div><div class="tl-t">Arrive at your apartment</div><div class="tl-d">Keys at front desk · Welcome note from Anya · Food in fridge · Printed emergency contacts</div></div></div>
+        </div>
+        <div class="pcard pcard-gold">
+          <div class="pct pct-gold">Message from Anya</div>
+          <div class="cb them" style="max-width:100%;margin-bottom:0;">Sarah! You've landed 🎉 Ravi is waiting for you — look for the MediFly sign. Message me the moment you're in the car. Your apartment is all set. You've got this. 💛</div>
+        </div>
+        <button class="btn btn-gold btn-sm" onclick="showPhase(3)" style="margin-top:4px;">I'm settled in — next steps →</button>
+      </div>
+      <div id="phase-3" class="hidden">
+        <div class="notif notif-gold"><div class="notif-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div class="notif-text"><strong>Surgery is tomorrow, Apr 2.</strong> Dr. Kumar and the Apollo team are ready. Here's everything you need to know.</div></div>
+        <div class="g2">
+          <div class="pcard">
+            <div class="pct">Tonight</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:10px;"><span style="color:#e05050;flex-shrink:0;">⚠️</span><div style="font-size:12px;color:#1a3a6b;line-height:1.55;"><strong style="color:#1a3a6b;">Nothing to eat or drink after midnight.</strong> Water only until 6 AM.</div></div>
+              <div style="display:flex;gap:10px;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span><div style="font-size:12px;color:#1a3a6b;">Shower with antibacterial soap provided</div></div>
+              <div style="display:flex;gap:10px;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span><div style="font-size:12px;color:#1a3a6b;">Lay out loose comfortable clothing</div></div>
+              <div style="display:flex;gap:10px;"><span style="color:#2e6fdb;flex-shrink:0;">✦</span><div style="font-size:12px;color:#1a3a6b;">Get a good night's rest — Anya calls at 7 AM</div></div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="pct">Tomorrow morning</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Pick-up</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">7:30 AM</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Check-in</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">8:00 AM</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(26,58,107,.1);"><span style="font-size:12px;color:#5a7a9a;">Surgery</span><span style="font-size:12px;color:#1a3a6b;font-weight:500;">10:00 AM</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="font-size:12px;color:#5a7a9a;">Driver</span><span style="font-size:12px;color:#2e6fdb;font-weight:500;">Ravi — same driver</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard pcard-gold">
+          <div class="pct pct-gold">Message from Anya</div>
+          <div class="cb them" style="max-width:100%;margin-bottom:0;">Sarah — big day tomorrow. I'll call you at 7 AM. I'll be reachable throughout the entire day. Dr. Kumar's team is fully prepared. I'm proud of you for getting here. 💛</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCUMENTS -->
+    <div id="pg-documents" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Documents</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">All your records in one place — accessible for life.</div>
+      <div class="pcard">
+        <div class="pct">Medical records</div>
+        <div class="doc-row"><div class="dl"><div class="di"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><div class="dn">MRI Report — Left Knee</div><div class="dd">Uploaded Nov 2024</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+        <div class="doc-row"><div class="dl"><div class="di"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><div class="dn">Surgical Report — Dr. Kumar</div><div class="dd">Uploaded Apr 2</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+        <div class="doc-row"><div class="dl"><div class="di"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><div class="dn">Discharge Summary</div><div class="dd">Uploaded Apr 5</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+        <div class="doc-row"><div class="dl"><div class="di"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div><div class="dn">Post-op Physiotherapy Plan</div><div class="dd">Uploaded Apr 6</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Travel documents</div>
+        <div class="doc-row"><div class="dl"><div class="di gd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></div><div><div class="dn">Flight Confirmation</div><div class="dd">Mar 29 · Chennai</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+        <div class="doc-row"><div class="dl"><div class="di gd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><div class="dn">Accommodation Details</div><div class="dd">Serviced apt · Near Apollo</div></div></div><span style="cursor:pointer;color:#5a7a9a;">↓</span></div>
+      </div>
+      <div class="pcard">
+        <div class="pct">Upload new document</div>
+        <div class="upload-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c8a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><div style="font-size:12px;color:#2e6fdb;font-weight:500;">Click to upload</div><div style="font-size:11px;color:#5a7a9a;margin-top:3px;">Upload documents at any time</div></div>
+      </div>
+    </div>
+
+    <!-- FOLLOW UP -->
+    <div id="pg-followup" class="pg">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a3a6b;margin-bottom:3px;">Follow-up plan</div>
+      <div style="font-size:12px;color:#5a7a9a;margin-bottom:20px;">Assigned by Dr. Kumar. Auto-suggested based on your procedure.</div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button class="btn btn-gold btn-sm" id="state-open-btn" onclick="setJourneyState('open')">Journey open</button>
+        <button class="btn btn-outline btn-sm" id="state-closed-btn" onclick="setJourneyState('closed')">Journey closed</button>
+      </div>
+      <div id="journey-open">
+        <div class="fu"><div class="fu-l"><div class="fu-icon fi-r"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></div><div><div class="fu-t">Blood test — inflammation markers</div><div class="fu-d">Due Apr 5 · 3 weeks post-op · Assigned by Dr. Kumar</div></div></div><span class="badge br">Overdue</span></div>
+        <div class="fu"><div class="fu-l"><div class="fu-icon fi-b"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23,7 16,12 23,17 23,7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div><div><div class="fu-t">Teleconsultation — Dr. Kumar</div><div class="fu-d">Due Apr 12 · 4 weeks post-op · Included in package</div></div></div><span class="badge ba">Upcoming</span></div>
+        <div class="fu"><div class="fu-l"><div class="fu-icon fi-b"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div><div><div class="fu-t">Upload physiotherapy progress report</div><div class="fu-d">Due Apr 26 · 6 weeks post-op</div></div></div><span class="badge ba">Upcoming</span></div>
+        <div class="fu"><div class="fu-l"><div class="fu-icon fi-gr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div><div class="fu-t">Post-surgery X-ray</div><div class="fu-d">Completed Apr 3</div></div></div><span class="badge bg">Done</span></div>
+        <div class="pcard" style="margin-top:4px;">
+          <div class="pct">Your surgeon</div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;">
+            <div class="cav" style="width:44px;height:44px;font-size:13px;background:rgba(74,144,217,.12);border-color:rgba(74,144,217,.3);color:#4a90d9;">RK</div>
+            <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1a3a6b;">Dr. Rajesh Kumar</div><div style="font-size:11px;color:#5a7a9a;">Apollo Hospitals, Chennai</div></div>
+          </div>
+          <div style="background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:8px;padding:12px 14px;margin-bottom:12px;"><div style="font-size:11px;color:#5a7a9a;line-height:1.65;">All communication with Dr. Kumar goes through <strong style="color:#1a3a6b;">Anya</strong>. Message Anya below — she will contact Dr. Kumar on your behalf.</div></div>
+          <div style="display:flex;gap:10px;">
+            <button class="btn btn-gold btn-sm" style="flex:1;" onclick="showBookConsult()">Book consultation — $49</button>
+            <button class="btn btn-outline btn-sm" style="flex:1;" onclick="showAnyaMsg()">Message Anya</button>
+          </div>
+        </div>
+        <div id="book-consult-panel" class="pcard hidden" style="margin-top:0;">
+          <div class="pct">Book a consultation with Dr. Kumar</div>
+          <div style="font-size:12px;color:#5a7a9a;margin-bottom:14px;line-height:1.6;">Video call · 20 minutes · $49</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px;" id="fu-cal-days"></div>
+          <div style="font-size:11px;color:#5a7a9a;margin-bottom:8px;">Available times — <span style="color:#2e6fdb;" id="fu-date-label">choose a date first</span></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;" id="fu-time-slots"></div>
+          <div id="fu-booking-done" class="hidden notif notif-green" style="margin-bottom:12px;"><div class="notif-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></div><div class="notif-text" id="fu-booking-detail"></div></div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-gold btn-sm" id="fu-confirm-btn" style="display:none;" onclick="confirmFuConsult()">Confirm — $49 →</button>
+            <button class="btn btn-outline btn-sm" onclick="document.getElementById('book-consult-panel').classList.add('hidden')">Cancel</button>
+          </div>
+        </div>
+        <div id="anya-msg-panel" class="pcard hidden" style="margin-top:0;">
+          <div class="pct">Message Anya</div>
+          <div class="chats" style="max-height:140px;">
+            <div class="cb them">Hi Sarah! How are you feeling? Any concerns about your recovery?</div>
+            <div class="cb me">My knee is a bit more swollen than I expected. Is that normal?</div>
+            <div class="cb them">Completely normal at 3 weeks post-op. I'll send Dr. Kumar a quick note and get back to you by tomorrow. Rest and ice it tonight. 💛</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <input class="pinp" placeholder="Type your message to Anya..." style="flex:1;"/>
+            <button class="btn btn-gold btn-sm" style="width:auto;">Send →</button>
+          </div>
+        </div>
+      </div>
+      <div id="journey-closed" class="hidden">
+        <div class="complete-banner" style="margin-bottom:16px;">
+          <div style="font-size:36px;margin-bottom:12px;">🎉</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#1aad6e;margin-bottom:8px;font-weight:600;">Journey complete</div>
+          <div style="font-size:12px;color:#5a7a9a;line-height:1.7;max-width:380px;margin:0 auto;">Your portal stays open forever. Upload documents, view records, or book consultations at any time.</div>
+        </div>
+        <div class="pcard">
+          <div class="pct">Book a new consultation</div>
+          <div style="font-size:12px;color:#5a7a9a;line-height:1.65;margin-bottom:16px;">Book with Dr. Kumar or a different specialist at any time.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+            <div style="background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:14px;cursor:pointer;" onclick="this.style.borderColor='#2e6fdb'">
+              <div style="font-size:20px;margin-bottom:8px;">👨‍⚕️</div>
+              <div style="font-size:13px;font-weight:600;color:#1a3a6b;margin-bottom:4px;">Dr. Rajesh Kumar</div>
+              <div style="font-size:11px;color:#5a7a9a;">Apollo Hospitals</div>
+              <div style="font-size:11px;color:#2e6fdb;margin-top:6px;">$49 · 20 min</div>
+            </div>
+            <div style="background:#f8fafd;border:1px solid rgba(26,58,107,.1);border-radius:10px;padding:14px;cursor:pointer;" onclick="this.style.borderColor='#2e6fdb'">
+              <div style="font-size:20px;margin-bottom:8px;">🔍</div>
+              <div style="font-size:13px;font-weight:600;color:#1a3a6b;margin-bottom:4px;">Different specialist</div>
+              <div style="font-size:11px;color:#5a7a9a;">MediFly will match you</div>
+              <div style="font-size:11px;color:#2e6fdb;margin-top:6px;">$49 · 20 min</div>
+            </div>
+          </div>
+          <button class="btn btn-gold btn-full">Book new consultation →</button>
+        </div>
+        <div class="pcard">
+          <div class="pct">Still need help?</div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;">
+            <div class="cav" style="width:40px;height:40px;font-size:12px;">AD</div>
+            <div style="flex:1;"><div style="font-size:13px;font-weight:500;color:#1a3a6b;">Anya Desai</div><div style="font-size:11px;color:#5a7a9a;">Your MediFly coordinator</div></div>
+            <div class="online-dot"></div>
+          </div>
+          <button class="btn btn-outline btn-full btn-sm">Message Anya</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end portal-main -->
+</div><!-- end portal -->
+
+<script>
+// ── WEBSITE ──
+function showW(id){
+  document.querySelectorAll('#website>div').forEach(d=>d.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+// ── PORTAL ENTRY ──
+function enterPortal(){
+  document.getElementById('website').classList.add('hidden');
+  document.getElementById('portal').classList.remove('hidden');
+  buildCal();
+}
+
+// ── PORTAL NAV ──
+function gp(id,navEl){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ni:not(.locked)').forEach(n=>n.classList.remove('on'));
+  var pg=document.getElementById('pg-'+id);
+  if(pg)pg.classList.add('on');
+  if(navEl&&!navEl.classList.contains('locked'))navEl.classList.add('on');
+  var titles={
+    'overview':'Welcome back, Sarah 👋',
+    'intake':'Medical Intake',
+    'coordinator':'Your Coordinator',
+    'hospitals':'Hospital Options',
+    'doctor':'Doctor Review Call',
+    'travel':'Travel & Stay',
+    'checklist':'Pre-Travel Checklist',
+    'onground':'On The Ground',
+    'documents':'Documents',
+    'followup':'Follow-up Plan'
+  };
+  var subs={
+    'overview':'Here\'s the status of your medical journey',
+    'intake':'Fill in your medical details to get started',
+    'coordinator':'Anya is assigned to your case',
+    'hospitals':'3 curated matches for your procedure',
+    'doctor':'Free call with Dr. Rajesh Kumar',
+    'travel':'Your complete journey plan',
+    'checklist':'Complete before Mar 29',
+    'onground':'MediFly is with you every step',
+    'documents':'All records in one place',
+    'followup':'Post-treatment care plan'
+  };
+  document.getElementById('topbar-title').textContent=titles[id]||'Portal';
+  document.getElementById('topbar-sub').textContent=subs[id]||'';
+  document.querySelector('.portal-main').scrollTop=0;
+}
+
+function lockedMsg(){alert('This section unlocks as you progress through your journey.');}
+
+// ── CALENDAR ──
+var calDate=new Date();
+var selectedDay=null,selectedTime=null;
+var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var avail=[0,1,3,5,6,8];
+var times=['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','2:00 PM','2:30 PM','3:00 PM','4:00 PM'];
+
+function buildCal(){
+  var grid=document.getElementById('cal-grid');
+  var label=document.getElementById('cal-month-label');
+  if(!grid||!label)return;
+  label.textContent=months[calDate.getMonth()]+' '+calDate.getFullYear();
+  grid.innerHTML='';
+  var days=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  days.forEach(function(d){var h=document.createElement('div');h.className='cal-day-head';h.textContent=d;grid.appendChild(h);});
+  var first=new Date(calDate.getFullYear(),calDate.getMonth(),1);
+  var last=new Date(calDate.getFullYear(),calDate.getMonth()+1,0);
+  var today=new Date();today.setHours(0,0,0,0);
+  for(var i=0;i<first.getDay();i++){var e=document.createElement('div');grid.appendChild(e);}
+  for(var d=1;d<=last.getDate();d++){
+    var date=new Date(calDate.getFullYear(),calDate.getMonth(),d);
+    var btn=document.createElement('div');
+    var isPast=date<today;
+    var isWeekend=date.getDay()===0||date.getDay()===6;
+    var disabled=isPast||isWeekend;
+    btn.className='cal-day'+(disabled?' disabled':'');
+    if(date.toDateString()===today.toDateString())btn.className+=' today';
+    btn.textContent=d;
+    if(!disabled){
+      (function(d2,b){
+        b.onclick=function(){
+          document.querySelectorAll('.cal-day.selected').forEach(function(x){x.classList.remove('selected');});
+          b.classList.add('selected');
+          selectedDay=d2.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+          buildSlots();
+        };
+      })(date,btn);
+    }
+    grid.appendChild(btn);
+  }
+}
+
+function calPrev(){calDate.setMonth(calDate.getMonth()-1);buildCal();}
+function calNext(){calDate.setMonth(calDate.getMonth()+1);buildCal();}
+
+function buildSlots(){
+  var section=document.getElementById('slots-section');
+  var grid=document.getElementById('slots-grid');
+  if(!section||!grid)return;
+  section.style.display='block';
+  grid.innerHTML='';
+  times.forEach(function(t,i){
+    var a=avail.includes(i);
+    var btn=document.createElement('div');
+    btn.className='slot'+(a?'':' unavail');
+    btn.textContent=a?t:'—';
+    if(a){
+      (function(time,b){
+        b.onclick=function(){
+          document.querySelectorAll('.slot.selected').forEach(function(x){x.classList.remove('selected');});
+          b.classList.add('selected');
+          selectedTime=time;
+          var cb=document.getElementById('confirm-btn');
+          if(cb)cb.style.display='block';
+        };
+      })(t,btn);
+    }
+    grid.appendChild(btn);
+  });
+}
+
+window.confirmWelcomeCall=function(){
+  var bb=document.getElementById('booked-banner');
+  var bd=document.getElementById('booked-detail');
+  var cb=document.getElementById('confirm-btn');
+  var ab=document.getElementById('after-booking');
+  if(bb)bb.classList.remove('hidden');
+  if(bd)bd.textContent='Confirmed for '+selectedDay+' at '+selectedTime+'.';
+  if(cb)cb.style.display='none';
+  if(ab)ab.classList.remove('hidden');
+};
+
+window.unlockFullPortal=function(){
+  ['ni-intake','ni-coordinator','ni-hospitals','ni-doctor','ni-travel','ni-checklist','ni-onground','ni-documents','ni-followup'].forEach(function(id){
+    var ni=document.getElementById(id);
+    if(ni){
+      ni.classList.remove('locked');
+      var lock=ni.querySelector('.ni-lock');
+      if(lock)lock.remove();
+      var page=id.replace('ni-','');
+      ni.setAttribute('onclick',"gp('"+page+"',this)");
+    }
+  });
+  // Update journey tracker
+  var jtrack=document.querySelector('.jtrack');
+  if(jtrack){
+    var circles=jtrack.querySelectorAll('.jcircle');
+    if(circles[1]){circles[1].className='jcircle jc-done';circles[1].innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>';}
+    if(circles[2]){circles[2].className='jcircle jc-active';}
+    var lines=jtrack.querySelectorAll('.jline');
+    if(lines[1])lines[1].className='jline jline-done';
+  }
+  setTimeout(function(){completeIntake();},600);
+};
+
+// ── UNLOCK STEPS ──
+function completeIntake(){
+  var ni=document.getElementById('ni-intake');
+  if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();ni.setAttribute('onclick',"gp('intake',this)");}
+  gp('intake',document.getElementById('ni-intake'));
+}
+
+function unlockCoordinator(){
+  var ni=document.getElementById('ni-coordinator');
+  if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();ni.setAttribute('onclick',"gp('coordinator',this)");}
+  gp('coordinator',ni);
+}
+
+// Override completeIntake to also unlock coordinator
+window.completeIntake=function(){
+  var ni=document.getElementById('ni-coordinator');
+  if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();ni.setAttribute('onclick',"gp('coordinator',this)");}
+  gp('coordinator',document.getElementById('ni-coordinator'));
+};
+
+function unlockHospitals(){
+  var ni=document.getElementById('ni-hospitals');
+  if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();ni.setAttribute('onclick',"gp('hospitals',this)");}
+  gp('hospitals',ni);
+}
+
+function unlockDoctor(){
+  var ni=document.getElementById('ni-doctor');
+  if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();ni.setAttribute('onclick',"gp('doctor',this)");}
+  gp('doctor',ni);
+}
+
+function unlockTravel(){
+  ['ni-travel','ni-checklist','ni-onground','ni-documents','ni-followup'].forEach(function(id){
+    var ni=document.getElementById(id);
+    if(ni){ni.classList.remove('locked');var l=ni.querySelector('.ni-lock');if(l)l.remove();var page=id.replace('ni-','');ni.setAttribute('onclick',"gp('"+page+"',this)");}
+  });
+  gp('travel',document.getElementById('ni-travel'));
+}
+
+// ── OPT SELECT ──
+function selOpt(el){document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
+
+// ── CHECKLIST ──
+function tck(box){
+  var text=box.nextElementSibling;
+  if(box.classList.contains('chk')){box.classList.remove('chk');box.textContent='';text.classList.remove('done');}
+  else{box.classList.add('chk');box.textContent='✓';text.classList.add('done');}
+}
+
+// ── PHASE SWITCHER ──
+function showPhase(n){
+  [1,2,3].forEach(function(i){
+    var ph=document.getElementById('phase-'+i);
+    var btn=document.getElementById('ptab-'+i);
+    if(ph)ph.classList.toggle('hidden',i!==n);
+    if(btn)btn.className=i===n?'ptab active':'ptab';
+  });
+}
+
+// ── FOLLOW UP ──
+function setJourneyState(s){
+  document.getElementById('journey-open').classList.toggle('hidden',s!=='open');
+  document.getElementById('journey-closed').classList.toggle('hidden',s==='open');
+  document.getElementById('state-open-btn').className=s==='open'?'btn btn-gold btn-sm':'btn btn-outline btn-sm';
+  document.getElementById('state-closed-btn').className=s==='closed'?'btn btn-gold btn-sm':'btn btn-outline btn-sm';
+}
+
+function showBookConsult(){
+  var p=document.getElementById('book-consult-panel');
+  var a=document.getElementById('anya-msg-panel');
+  a.classList.add('hidden');
+  p.classList.toggle('hidden');
+  if(!p.classList.contains('hidden'))buildFuCal();
+}
+
+function showAnyaMsg(){
+  var p=document.getElementById('book-consult-panel');
+  var a=document.getElementById('anya-msg-panel');
+  p.classList.add('hidden');
+  a.classList.toggle('hidden');
+}
+
+var fuDay=null,fuTime=null;
+function buildFuCal(){
+  var c=document.getElementById('fu-cal-days');
+  if(!c||c.children.length>7)return;
+  var days=['S','M','T','W','T','F','S'];
+  var today=new Date();
+  days.forEach(function(d){var h=document.createElement('div');h.style.cssText='font-size:9px;color:#5a7a9a;text-align:center;padding:3px 0;';h.textContent=d;c.appendChild(h);});
+  var start=new Date(today);start.setDate(today.getDate()-today.getDay());
+  for(var w=0;w<3;w++){
+    for(var d=0;d<7;d++){
+      var date=new Date(start);date.setDate(start.getDate()+w*7+d);
+      var btn=document.createElement('div');
+      var isPast=date<new Date(today.toDateString());
+      var isWeekend=date.getDay()===0||date.getDay()===6;
+      var disabled=isPast||isWeekend;
+      btn.style.cssText='text-align:center;padding:7px 2px;border-radius:6px;font-size:11px;cursor:'+(disabled?'not-allowed':'pointer')+';border:1px solid '+(disabled?'transparent':'rgba(26,58,107,.15)')+';color:'+(disabled?'#8aaacc':'#1a3a6b')+';transition:all .15s;';
+      btn.textContent=date.getDate();
+      if(!disabled){
+        (function(d2,b){
+          b.setAttribute('data-date',d2.toDateString());
+          b.onclick=function(){
+            document.querySelectorAll('#fu-cal-days div[data-date]').forEach(function(x){x.style.background='';x.style.color='#1a3a6b';x.style.borderColor='rgba(26,58,107,.15)';});
+            b.style.background='#2e6fdb';b.style.color='#0a0f1a';b.style.borderColor='#2e6fdb';
+            fuDay=d2.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+            document.getElementById('fu-date-label').textContent=fuDay;
+            buildFuSlots();
+          };
+        })(date,btn);
+      }
+      c.appendChild(btn);
+    }
+  }
+}
+
+function buildFuSlots(){
+  var c=document.getElementById('fu-time-slots');
+  if(!c)return;c.innerHTML='';
+  times.forEach(function(t,i){
+    var a=avail.includes(i);
+    var btn=document.createElement('div');
+    btn.className='slot'+(a?'':' unavail');
+    btn.textContent=a?t:'—';
+    if(a){
+      (function(time,b){
+        b.onclick=function(){
+          document.querySelectorAll('#fu-time-slots .slot').forEach(function(x){x.classList.remove('selected');});
+          b.classList.add('selected');fuTime=time;
+          var cb=document.getElementById('fu-confirm-btn');if(cb)cb.style.display='block';
+        };
+      })(t,btn);
+    }
+    c.appendChild(btn);
+  });
+}
+
+function confirmFuConsult(){
+  var done=document.getElementById('fu-booking-done');
+  var detail=document.getElementById('fu-booking-detail');
+  var btn=document.getElementById('fu-confirm-btn');
+  if(done)done.classList.remove('hidden');
+  if(detail)detail.textContent='Consultation confirmed for '+fuDay+' at '+fuTime+' · Dr. Rajesh Kumar · $49';
+  if(btn)btn.style.display='none';
+}
+</script>
+</body>
+</html>
